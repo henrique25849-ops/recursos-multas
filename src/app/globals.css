@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  /* Identidade Visual minnes.multas - Azul Escuro + Cinza */
+  
+  /* Cores Primárias */
+  --color-primary: oklch(0.35 0.15 250); /* Azul escuro profissional */
+  --color-primary-hover: oklch(0.30 0.15 250);
+  --color-primary-light: oklch(0.45 0.15 250);
+  
+  /* Cores Secundárias */
+  --color-secondary: oklch(0.50 0.02 250); /* Cinza profissional */
+  --color-secondary-hover: oklch(0.45 0.02 250);
+  
+  /* Cores de Acento */
+  --color-accent: oklch(0.60 0.20 250); /* Azul vibrante */
+  --color-accent-hover: oklch(0.55 0.20 250);
+  
+  /* Background - Modo Claro */
+  --color-background: oklch(0.98 0 0); /* Branco suave */
+  --color-surface: oklch(0.95 0 0); /* Cinza muito claro */
+  --color-card: oklch(1 0 0); /* Branco puro */
+  
+  /* Background - Modo Escuro */
+  --color-background-dark: oklch(0.15 0.01 250); /* Preto grafite */
+  --color-surface-dark: oklch(0.20 0.01 250); /* Cinza escuro */
+  --color-card-dark: oklch(0.18 0.01 250); /* Card escuro */
+  
+  /* Texto */
+  --color-text: oklch(0.20 0 0); /* Texto escuro */
+  --color-text-muted: oklch(0.50 0 0); /* Texto secundário */
+  --color-text-dark: oklch(0.95 0 0); /* Texto claro (dark mode) */
+  --color-text-muted-dark: oklch(0.65 0 0); /* Texto secundário (dark mode) */
+  
+  /* Bordas */
+  --color-border: oklch(0.85 0 0);
+  --color-border-dark: oklch(0.30 0.01 250);
+  
+  /* Estados */
+  --color-success: oklch(0.55 0.15 145);
+  --color-warning: oklch(0.70 0.15 85);
+  --color-error: oklch(0.55 0.20 25);
+  --color-info: oklch(0.60 0.15 250);
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  
+  /* Fontes */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+/* Base Styles */
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: var(--font-sans);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-background-dark);
+    --color-surface: var(--color-surface-dark);
+    --color-card: var(--color-card-dark);
+    --color-text: var(--color-text-dark);
+    --color-text-muted: var(--color-text-muted-dark);
+    --color-border: var(--color-border-dark);
+  }
+}
+
+/* Utility Classes */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.border-default {
+  border-color: var(--color-border);
+}
+
+/* Animações suaves */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Gradientes */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+}
+
+/* Cards com elevação */
+.card-elevated {
+  box-shadow: var(--shadow-lg);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-elevated:hover {
+  box-shadow: var(--shadow-xl);
+}
